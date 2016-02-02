@@ -9,6 +9,7 @@ import React, {
   Component,
   StyleSheet,
   Text,
+  Image,
   View
 } from 'react-native';
 
@@ -62,21 +63,22 @@ class AwesomeProject extends Component {
     var prevClose = this.state.ticker.prev_close
     return (
       <View style={styles.container}>
-        <Text style={styles.title}>
+        <Image source={require('./img/logo.png')} />
+        <Text style={[styles.content, styles.title]}>
           BTC / CNY
         </Text>
-        <Text style={styles.last}>
+        <Text style={[styles.content, styles.last]}>
           {parseFloat(last).toFixed(2)}
         </Text>
-        <Text style={styles.percent}>
+        <Text style={[styles.content, styles.percent]}>
           {(last - prevClose) > 0 ? "+ " : "- "}
           {((last - prevClose) / prevClose * 100).toFixed(2)}%
         </Text>
-        <Text style={styles.volume}>
-          Volume: {parseInt(this.state.ticker.vol)}
+        <Text style={[styles.content, styles.volume]}>
+          Vol: {parseInt(this.state.ticker.vol)}
         </Text>
-        <Text style={styles.footer}>
-          Power by BTCC.com
+        <Text style={[styles.content, styles.footer]}>
+          Powered by BTCC.com
         </Text>
       </View>
     );
@@ -90,25 +92,23 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: '#666',
   },
-  title: {
-    fontSize: 50,
+  content: {
+    fontSize: 20,
     color: '#fff',
+  },
+  title: {
+    fontWeight: 'bold',
     margin: 10,
     marginBottom: 15,
   },
   last: {
-    fontSize: 50,
-    color: '#fff',
+    fontSize: 40,
     marginBottom: 10,
   },
   percent: {
-    fontSize: 20,
-    color: '#fff',
     marginBottom: 10,
   },
   volume: {
-    fontSize: 20,
-    color: '#eee',
     marginBottom: 15,
   },
   footer: {

@@ -1,4 +1,4 @@
-# BTC/CNY Ract Native
+# BTC/CNY React Native
 
 ## Install
 
